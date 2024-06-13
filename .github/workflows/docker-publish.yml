@@ -54,7 +54,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script: docker login --username ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }} ${{ env.REGISTRY }} && TELOXIDE_TOKEN=${{ secrets.TELOXIDE_TOKEN }} IMAGE="${{ steps.meta.outputs.tags }}" docker compose --file /root/devops/docker/docker-compose.yml up -d --pull always mpei_gpt_bot
+          script: docker login --username ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }} ${{ env.REGISTRY }} && IMAGE="${{ steps.meta.outputs.tags }}" docker compose --file /root/devops/docker/docker-compose.yml up -d --pull always mpei_gpt_bot
 
       - name: Send telegram notification
         if: always()
