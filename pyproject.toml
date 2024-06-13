@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "diplom"
+version = "0.1.0"
+description = ""
+authors = ["savinova <savinovakatusa@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.110.0"
+pyyaml = "^6.0.1"
+loguru = "^0.7.2"
+email-validator = "^2.1.1"
+uvicorn = "^0.29.0"
+httpx = { extras = ["http2", "brotli"], version = "^0.27.0" }
+fastui = "^0.5.2"
+pyjwt = "^2.8.0"
+cryptography = "^42.0.5"
+pydantic = "<2.7"
+aiogram = { git = "https://github.com/aiogram/aiogram.git" }
+python-multipart = "^0.0.9"
+phonenumbers = "^8.13.35"
+jsonlines = "^4.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.11.0"
+
+[tool.black]
+line-length = 120
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
