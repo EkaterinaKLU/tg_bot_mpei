@@ -314,4 +314,3 @@ class Storage:
 
 # Инициализируем инстанс класса для работы с базой данных
 storage = Storage(settings.db_path)
-
