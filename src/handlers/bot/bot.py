@@ -99,7 +99,7 @@ async def answer_type_phone_handler(message: types.Message, state: FSMContext, u
     data = await state.get_data()
     await state.set_data({"phone": phone, **data})
     await state.set_state(UserState.type_email_state)
-    await message.answer("Пожалуйста, введи свой email")
+    await message.answer("Пожалуйста, введи свой email. Формат example@example.com")
 
 
 # Обрабатываем почту пользователя
@@ -112,7 +112,7 @@ async def answer_type_email_handler(message: types.Message, state: FSMContext, u
         # Валидируем почту
         email_validator.validate_email(message.text)
     except email_validator.EmailNotValidError:
-        await message.answer("Вы неправильно ввели свой email")
+        await message.answer("Вы неправильно ввели свой email. Формат example@example.com")
         return
     if user is not None:
         storage.update_tg_user_email(message.from_user.id, message.text)
